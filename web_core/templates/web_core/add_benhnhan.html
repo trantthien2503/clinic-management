@@ -25,20 +25,20 @@
     }
 
     .btn.back-btn {
-        font-weight: bold;
-        background-color: white;
-        border-color: black;
-        border-radius: 6px;
-        border-width: 1px;
-        color: black;
-        padding: 10px 14px;
-        margin: auto;
-        right: 0;
+        color: #ffffff; background-color: red
     }
 
     .btn.form-btn {
         display: flex;
         justify-content: center;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    select {
+        width: 100%;
     }
 </style>
 <div class="d-flex justify-content-center h-100" style="margin-top:50px;">
@@ -51,9 +51,10 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     {{form.as_p}}
-                    <div class="btn form-btn">
-                        <input type="submit" value="Thêm">
-                        <a class='btn back-btn' href="{% url 'quanli_dskb'%}">Trở lại</a>
+                    <div class="btn form-btn d-flex align-items-center justify-content-between">
+                        <button style="color: #ffffff; background-color: #6f42c1;" class="btn"
+                            type="submit">Thêm</button>
+                        <a class="btn back-btn" href="{% url 'quanli_dskb'%}">Trở lại</a>
                     </div>
                 </form>
             </div>
