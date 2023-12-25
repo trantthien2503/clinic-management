@@ -50,9 +50,8 @@
 </style>
 
 <nav class="navbar navbar-expand-lg my-navbar fixed-top">
-    <a href="{% url 'home' %}">
-        <img class="navbar-brand" alt="logo-brand" src="{% static 'images/favicon.png' %}" height="50"
-            style="padding-bottom: 4px" />
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <img alt="logo-brand" src="{% static 'images/favicon.png' %}" height="50" style="padding-bottom: 4px" />
     </a>
     <span class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         DANH MỤC
@@ -74,15 +73,16 @@
         {% endwith %}
     </div>
     {% with request.resolver_match.url_name as url_name %}
-
     {% if request.user.is_authenticated %}
-    <span class="hello-msg">Xin chào, <span> {{request.user}} </span></span>
-    <a class="nav-item nav-link my-nav-item my-btn" href="{% url 'logout' %}">Đăng xuất</a>
-
+    <div class="ml-auto">
+        <span class="hello-msg">Xin chào, <span>{{ request.user }}</span></span>
+        <a class="nav-item nav-link my-nav-item my-btn" href="{% url 'logout' %}">Đăng xuất</a>
+    </div>
     {% else %}
-    <a class="nav-item nav-link my-nav-item my-btn {% if url_name == 'login' %}my-nav-active{% endif %}"
-        href="{% url 'login' %}">Đăng nhập</a>
+    <div class="ml-auto">
+        <a class="nav-item nav-link my-nav-item my-btn {% if url_name == 'login' %}my-nav-active{% endif %}"
+            href="{% url 'login' %}">Đăng nhập</a>
+    </div>
     {% endif %}
     {% endwith %}
-
 </nav>
